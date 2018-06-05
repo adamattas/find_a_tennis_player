@@ -24,7 +24,7 @@
           Teams
         </label>
 
-        <input type="text" id="teams_id" name="teams_id" placeholder="Teams" class="form-control" value="<%= @home_court.teams_id %>">
+        <%= select_tag(:teams_id, options_from_collection_for_select(Team.all, :id, :teams, @home_court.teams_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for location -->
