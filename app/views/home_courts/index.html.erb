@@ -16,7 +16,7 @@
 
       <% @home_courts.each do |home_court| %>
       <tr>
-        <td><%= home_court.teams_id %></td>
+        <td><%= home_court.teams.teams %></td>
         <td><%= home_court.location %></td>
         <td>
           <a href="/home_courts/<%= home_court.id %>" class="btn btn-primary">Show</a>
