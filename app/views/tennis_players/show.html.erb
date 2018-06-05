@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Tennis Player #<%= @tennis_player.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Email</dt>
+      <dd><%= @tennis_player.email %></dd>
+
+      <dt>Password</dt>
+      <dd><%= @tennis_player.password %></dd>
+
+      <dt>Teams</dt>
+      <dd><%= @tennis_player.teams_id %></dd>
+
+      <dt>Players</dt>
+      <dd><%= @tennis_player.players %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/tennis_players" class="btn btn-primary">
+        Back
+      </a>
+    </div>
+  </div>
+</div>
