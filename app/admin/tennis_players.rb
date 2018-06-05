@@ -1,4 +1,6 @@
 ActiveAdmin.register TennisPlayer do
+
+ permit_params :email, :password, :teams_id, :players
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
