@@ -1,6 +1,10 @@
 class TennisPlayer < ApplicationRecord
   # Direct associations
 
+  belongs_to :teams,
+             :class_name => "Team",
+             :counter_cache => true
+
   # Indirect associations
 
   # Validations
