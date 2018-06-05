@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "home_courts#index"
   # Routes for the Team resource:
   # CREATE
   get "/teams/new", :controller => "teams", :action => "new"
