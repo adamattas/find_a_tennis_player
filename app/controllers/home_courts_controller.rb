@@ -1,6 +1,11 @@
 class HomeCourtsController < ApplicationController
   def index
     @home_courts = HomeCourt.all
+    @location_hash = Gmaps4rails.build_markers(@home_courts.where.not(:location_latitude => nil)) do |home_court, marker|
+      marker.lat home_court.location_latitude
+      marker.lng home_court.location_longitude
+      marker.infowindow "<h5><a href='/home_courts/#{home_court.id}'>#{home_court.teams_id}</a></h5><small>#{home_court.location_formatted_address}</small>"
+    end
 
     render("home_courts/index.html.erb")
   end
