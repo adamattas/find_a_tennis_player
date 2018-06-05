@@ -20,7 +20,13 @@
       <tr>
         <td><%= tennis_player.email %></td>
         <td><%= tennis_player.password %></td>
-        <td><%= tennis_player.teams.teams %></td>
+        <td>
+          <% if tennis_player.teams.present? %>
+            <a href="/teams/<%= tennis_player.teams.id %>">
+              <%= tennis_player.teams.teams %>
+            </a>
+          <% end %>
+        </td>
         <td><%= tennis_player.players %></td>
         <td>
           <a href="/tennis_players/<%= tennis_player.id %>" class="btn btn-primary">Show</a>

@@ -12,7 +12,13 @@
       <dd><%= @tennis_player.password %></dd>
 
       <dt>Teams</dt>
-      <dd><%= @tennis_player.teams_id %></dd>
+      <dd>
+        <% if @tennis_player.teams.present? %>
+          <a href="/teams/<%= @tennis_player.teams_id %>">
+            <%= @tennis_player.teams.teams %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Players</dt>
       <dd><%= @tennis_player.players %></dd>
