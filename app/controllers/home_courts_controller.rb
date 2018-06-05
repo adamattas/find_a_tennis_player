@@ -1,6 +1,7 @@
 class HomeCourtsController < ApplicationController
   def index
-    @home_courts = HomeCourt.page(params[:page]).per(10)
+    @q = HomeCourt.ransack(params[:q])
+    @home_courts = @q.result(:distinct => true).includes(:teams).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@home_courts.where.not(:location_latitude => nil)) do |home_court, marker|
       marker.lat home_court.location_latitude
       marker.lng home_court.location_longitude
