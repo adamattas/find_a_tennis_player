@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   def index
     @q = Team.ransack(params[:q])
-    @teams = @q.result(:distinct => true).includes(:tennis_players, :home_court).page(params[:page]).per(10)
+    @teams = @q.result(:distinct => true).includes(:tennis_players, :active_tournament).page(params[:page]).per(10)
 
     render("teams/index.html.erb")
   end
@@ -22,7 +22,8 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new
 
-    @team.teams = params[:teams]
+    @team.name = params[:name]
+    @team.tournament = params[:tournament]
 
     save_status = @team.save
 
@@ -49,7 +50,8 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
-    @team.teams = params[:teams]
+    @team.name = params[:name]
+    @team.tournament = params[:tournament]
 
     save_status = @team.save
 
