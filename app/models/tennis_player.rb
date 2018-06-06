@@ -3,6 +3,7 @@ class TennisPlayer < ApplicationRecord
 
   belongs_to :teams,
              :class_name => "Team",
+             :foreign_key => "team",
              :counter_cache => true
 
   # Indirect associations

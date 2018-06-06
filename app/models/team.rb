@@ -1,12 +1,11 @@
 class Team < ApplicationRecord
   # Direct associations
 
-  has_one    :home_court,
-             :foreign_key => "teams_id",
-             :dependent => :destroy
+  belongs_to :active_tournament,
+             :class_name => "Tournament",
+             :foreign_key => "tournament"
 
   has_many   :tennis_players,
-             :foreign_key => "teams_id",
              :dependent => :destroy
 
   # Indirect associations
