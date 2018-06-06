@@ -1,7 +1,8 @@
 class CreateTeams < ActiveRecord::Migration
   def change
     create_table :teams do |t|
-      t.string :teams
+      t.string :name
+      t.integer :tournament
 
       t.timestamps
 
