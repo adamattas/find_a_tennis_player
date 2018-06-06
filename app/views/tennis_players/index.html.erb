@@ -11,8 +11,9 @@
       <tr>
         <th>Email</th>
         <th>Password</th>
-        <th>Teams</th>
-        <th>Players</th>
+        <th>Team</th>
+        <th>First name</th>
+        <th>Last name</th>
         <th>Actions</th>
       </tr>
 
@@ -23,11 +24,12 @@
         <td>
           <% if tennis_player.teams.present? %>
             <a href="/teams/<%= tennis_player.teams.id %>">
-              <%= tennis_player.teams.teams %>
+              <%= tennis_player.teams.name %>
             </a>
           <% end %>
         </td>
-        <td><%= tennis_player.players %></td>
+        <td><%= tennis_player.first_name %></td>
+        <td><%= tennis_player.last_name %></td>
         <td>
           <a href="/tennis_players/<%= tennis_player.id %>" class="btn btn-primary">Show</a>
         </td>
