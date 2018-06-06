@@ -18,13 +18,22 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for teams -->
+      <!-- Label and input for name -->
       <div class="form-group">
-        <label for="teams" class="control-label">
-          Teams
+        <label for="name" class="control-label">
+          Name
         </label>
 
-        <input type="text" id="teams" name="teams" placeholder="Teams" class="form-control" value="<%= @team.teams %>">
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @team.name %>">
+      </div>
+
+      <!-- Label and input for tournament -->
+      <div class="form-group">
+        <label for="tournament" class="control-label">
+          Tournament
+        </label>
+
+        <%= select_tag(:tournament, options_from_collection_for_select(Tournament.all, :id, :created_at, @team.tournament), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

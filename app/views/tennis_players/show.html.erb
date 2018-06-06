@@ -11,17 +11,20 @@
       <dt>Password</dt>
       <dd><%= @tennis_player.password %></dd>
 
-      <dt>Teams</dt>
+      <dt>Team</dt>
       <dd>
         <% if @tennis_player.teams.present? %>
-          <a href="/teams/<%= @tennis_player.teams_id %>">
-            <%= @tennis_player.teams.teams %>
+          <a href="/teams/<%= @tennis_player.team %>">
+            <%= @tennis_player.teams.name %>
           </a>
         <% end %>
       </dd>
 
-      <dt>Players</dt>
-      <dd><%= @tennis_player.players %></dd>
+      <dt>First name</dt>
+      <dd><%= @tennis_player.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @tennis_player.last_name %></dd>
 
     </dl>
 
